@@ -1,0 +1,119 @@
+ffPrimary = 'Source Sans Pro', 'helvetica', 'arial', 'sans-serif'
+ffSecondary = 'Playfair Display'
+bpMedium = 765px
+white = #f4f4f4
+black = #000
+gray = #838b91
+pageBg = #f7f7f7
+brandPrimary = #60bdaa
+brandPrimaryD = #5aa395
+brandSecondary = #f6bcb4
+brandSecondaryD = #c49494
+brandSecondaryL = #c49494
+
+html, body
+	padding 0
+	margin 0
+body
+	background-color pageBg
+	color brandSecondary
+	transition all 0.3s ease
+	font-family ffPrimary
+	line-height 1.2
+	font-weight 400
+	font-size 16px
+a
+	color brandSecondaryD
+	&hover
+		text-decoration underline
+
+.wrapper
+	margin 0 auto
+	max-width 1200px
+	min-width 320px
+	width 100%
+.content
+	padding 0 20px
+
+header
+	padding 60px 0 60px 0
+	height 80px
+	display flex
+	justify-content space-between
+	align-items center
+	>*
+		flex 1
+	.logo-img
+		width 100px
+		height 100px
+		background transparent url(images/logo.svg) no-repeat center
+		background-size contain
+	.logo
+		text-transform uppercase
+		font-weight 700
+		font-size 12px
+		span
+			font-weight 400
+	.available
+		color brandPrimaryD
+		text-align right
+		font-weight 700
+
+main
+	>span
+		color brandSecondaryD
+		display block
+		text-transform uppercase
+		font-size 14px
+		font-family ffPrimary
+		font-weight 400
+		font-style normal
+		letter-spacing 1px
+	h2
+		margin-top 0
+		font-size 48px
+		font-family ffSecondary
+		font-family ffSecondary
+		font-weight 400
+		color gray
+		span
+			color brandSecondaryD
+
+
+	p
+		color gray
+		font-size 48px
+		font-family ffSecondary
+		font-family ffSecondary
+		font-weight 400
+		span
+			color brandSecondaryD
+
+
+footer
+	text-transform uppercase
+	font-weight 300
+	letter-spacing 1px
+	margin 40px 0
+	p
+		font-size 14px
+		color gray
+		a
+			display block
+			letter-spacing 1px
+			font-size 16px
+			margin 10px 0
+			color brandSecondaryD
+			text-decoration none
+			+above(600px)
+				margin 0 10px
+				display inline-block
+			&:first-child
+				margin-left 0
+			&:hover
+				color brandSecondaryL
+				text-decoration: none
+
+
+
+

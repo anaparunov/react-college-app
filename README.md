@@ -88,7 +88,7 @@ To run those 3 commands you can just do
 
 _Autoprefixer_ is included and use [caniuse.com](http://caniuse.com/) database to avoid outdated prefixes. _You can forget CSS prefixes NOW._
 
-### Static server with Livereload
+### Static server with Live-server
 
 The app embed for development a static connect server with livereload plugged.
 So each time you start the app, you get automatic refresh in the browser whenever you update a file.

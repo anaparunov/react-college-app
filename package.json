@@ -2,12 +2,19 @@
   "name": "reactapp",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anaparunov/react-college-app.git"
+  },
   "main": "index.js",
   "scripts": {
-    "build": "browserify -t [ babelify --presets [ react es2015 ] ] main.js -o build.js -v",
-    "watch": "watchify -d -e -t [ babelify --presets [ react es2015 ] ] main.js -o build.js -v",
+    "clean": "rimraf build/",
+    "predev": "npm run clean && mkdirp dist/",
+    "dev:styles": "stylus --print --compress --use rupture --use autoprefixer-stylus --include-css --inline --include node_modules assets/main.styl | cleancss > dist/main.css",
     "dev:serve": "live-server --port=9090 ./",
-    "dev": "npm run build && parallelshell \"npm run watch\" \"npm run dev:serve\""
+    "dev": "parallelshell \"npm run watch\" \"npm run dev:styles\" \"npm run dev:serve\"",
+    "watch": "watchify -d -e -t [ babelify --presets [ react es2015 ] ] main.js -o build.js -v",
+    "build": "browserify -t [ babelify --presets [ react es2015 ] ] main.js -o build.js -v"
   },
   "author": "ana@parunov.com",
   "license": "ISC",
@@ -20,8 +27,14 @@
     "live-server": "^1.1.0"
   },
   "dependencies": {
+    "autoprefixer-stylus": "^0.9.4",
+    "clean-css": "^3.4.19",
+    "mkdirp": "^0.5.1",
     "parallelshell": "^2.0.0",
     "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react-dom": "^0.14.3",
+    "rimraf": "^2.5.4",
+    "rupture": "^0.6.1",
+    "stylus": "^0.54.5"
   }
 }
