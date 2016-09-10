@@ -12,11 +12,11 @@
     "predev": "npm run clean && mkdirp build-npm/dist/ && npm run copy:index",
     "prebuild": "npm run clean && mkdirp build-npm/dist/ && npm run copy:index",
     "copy:index": "ncp src/index.html build-npm/index.html",
-    "dev:styles": "stylus -w --use rupture --use autoprefixer-stylus --include-css --inline --include node_modules src/assets/main.styl -o build-npm/main.css",
-    "build:styles": "stylus --print --use rupture --use autoprefixer-stylus --include-css --inline --include node_modules src/assets/main.styl -o build-npm/main.css",
+    "dev:styles": "stylus -w --use rupture --use autoprefixer-stylus --include-css --include node_modules src/assets/main.styl -o build-npm/main.css",
+    "build:styles": "stylus --compress --use rupture --use autoprefixer-stylus --include-css --inline --include node_modules src/assets/main.styl -o build-npm/main.css",
     "serve": "live-server --port=9090 ./build-npm",
     "watch:js": "watchify -d -e -t [ babelify --presets [ react es2015 ] ] src/main.js -o build-npm/build.js -v",
-    "build:js": "browserify -t [ babelify --presets [ react es2015 ] ] src/main.js -o build-npm/build.js -v",
+    "build:js": "browserify -t [ babelify --presets [ react es2015 ] ] src/main.js | uglifyjs -c warnings=false,unsafe,pure_getters -m --screw-ie8 -o build-npm/build.js -v",
     "dev": "parallelshell \"npm run watch:js\" \"npm run dev:styles\" \"npm run serve\"",
     "build": "parallelshell \"npm run build:js\" \"npm run build:styles\" \"npm run serve\""
   },
@@ -40,6 +40,7 @@
     "react-dom": "^0.14.3",
     "rimraf": "^2.5.4",
     "rupture": "^0.6.1",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+    "uglify-js": "^2.7.3"
   }
 }
