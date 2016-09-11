@@ -51,44 +51,23 @@ Also, be sure to have `git` available in your PATH, `npm` might need it.
     $ npm install
 
 
-## Start & watch
+## Start & watch with NPM
 
-    $ npm start
+    $ npm run dev
 
-## Simple build for production
+### Build for production
 
     $ npm run build
 
-## Update sources
+## Start & watch with GULP
 
-Some packages usages might change so you should run `npm prune` & `npm install` often.
-A common way to update is by doing
+    $ gulp dev
 
-    $ git pull
-    $ npm prune
-    $ npm install
+### Build for production
 
-To run those 3 commands you can just do
+    $ gulp prod
 
-    $ npm run pull
-
-**Note:** Unix user can just link the `git-hooks/post-merge`:
-
-
-## Languages & tools
-
-### HTML
-
-
-### JavaScript
-
-
-### CSS
-
-
-_Autoprefixer_ is included and use [caniuse.com](http://caniuse.com/) database to avoid outdated prefixes. _You can forget CSS prefixes NOW._
-
-### Static server with Live-server
+### Static server with BrowserSync
 
 The app embed for development a static connect server with livereload plugged.
 So each time you start the app, you get automatic refresh in the browser whenever you update a file.
